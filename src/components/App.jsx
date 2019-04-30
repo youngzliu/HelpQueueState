@@ -22,6 +22,13 @@ class App extends React.Component {
     this.setState({ masterTicketList: newMasterTicketList });
   }
 
+  componentDidMount() {
+    this.waitTimeUpdateTimer = setInterval(
+      () => this.updateTicketElapsedWaitTime(),
+      5000
+    );
+  }
+
   render() {
     return (
       <div>
