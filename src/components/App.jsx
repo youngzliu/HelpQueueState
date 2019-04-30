@@ -11,11 +11,19 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterTicketList: []
+      masterTicketList: [],
+      selectedTicket: null
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(
       this
     );
+    this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(
+      this
+    );
+  }
+
+  handleChangingSelectedTicket(ticket) {
+    this.setState({ selectedTicket: ticket });
   }
 
   handleAddingNewTicketToList(newTicket) {
@@ -71,6 +79,8 @@ class App extends React.Component {
               <Admin
                 ticketList={this.state.masterTicketList}
                 currentRouterPath={props.location.pathname}
+                onTicketSelection={this.handleChangingSelectedTicket}
+                selectedTicket={this.state.selectedTicket}
               />
             )}
           />
