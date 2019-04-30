@@ -5,6 +5,7 @@ import NewTicketControl from "./NewTicketControl";
 import Error404 from "./Error404";
 import { Switch, Route } from "react-router-dom";
 import Moment from "moment";
+import Admin from "./Admin";
 
 class App extends React.Component {
   constructor(props) {
@@ -61,6 +62,15 @@ class App extends React.Component {
             render={() => (
               <NewTicketControl
                 onNewTicketCreation={this.handleAddingNewTicketToList}
+              />
+            )}
+          />
+          <Route
+            path="/admin"
+            render={props => (
+              <Admin
+                ticketList={this.state.masterTicketList}
+                currentRouterPath={props.location.pathname}
               />
             )}
           />
