@@ -25,6 +25,7 @@
     "react/jsx-indent": ["error", 2],
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "no-console": 0
   }
 }
