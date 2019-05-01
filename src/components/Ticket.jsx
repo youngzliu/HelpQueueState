@@ -15,12 +15,7 @@ function Ticket(props) {
     return (
       <div
         onClick={() => {
-          props.onTicketSelection({
-            names: props.names,
-            location: props.location,
-            issue: props.issue,
-            formattedWaitTime: props.formattedWaitTime
-          });
+          props.onTicketSelection(props.ticketId);
         }}
       >
         {ticketInformation}
@@ -37,7 +32,8 @@ Ticket.propTypes = {
   issue: PropTypes.string,
   formattedWaitTime: PropTypes.string.isRequired,
   currentRouterPath: PropTypes.string,
-  onTicketSelection: PropTypes.func
+  onTicketSelection: PropTypes.func,
+  ticketId: PropTypes.string.isRequired
 };
 
 export default Ticket;

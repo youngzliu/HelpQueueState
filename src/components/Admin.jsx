@@ -7,7 +7,7 @@ function Admin(props) {
   let optionalSelectedTicketContent = null;
   if (props.selectedTicket != null) {
     optionalSelectedTicketContent = (
-      <TicketDetail selectedTicket={props.selectedTicket} />
+      <TicketDetail selectedTicket={props.ticketList[props.selectedTicket]} />
     );
   }
   return (
@@ -24,10 +24,10 @@ function Admin(props) {
 }
 
 Admin.propTypes = {
-  ticketList: PropTypes.array,
+  ticketList: PropTypes.object,
   currentRouterPath: PropTypes.string.isRequired,
   onTicketSelection: PropTypes.func.isRequired,
-  selectedTicket: PropTypes.object
+  selectedTicket: PropTypes.string
 };
 
 export default Admin;
